@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "projects": {
+    "lifeweb": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/lifeweb",
+      "sourceRoot": "apps/lifeweb/src",
+      "prefix": "evodlife",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/lifeweb",
+            "index": "apps/lifeweb/src/index.html",
+            "main": "apps/lifeweb/src/main.ts",
+            "polyfills": "apps/lifeweb/src/polyfills.ts",
+            "tsConfig": "apps/lifeweb/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/lifeweb/src/favicon.ico",
+              "apps/lifeweb/src/assets"
+            ],
+            "styles": ["apps/lifeweb/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/lifeweb/src/environments/environment.ts",
+                  "with": "apps/lifeweb/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lifeweb:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lifeweb:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lifeweb:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/lifeweb/tsconfig.app.json",
+              "apps/lifeweb/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/lifeweb/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/lifeweb/jest.config.js",
+            "tsConfig": "apps/lifeweb/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/lifeweb/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "lifeweb-e2e": {
+      "root": "apps/lifeweb-e2e",
+      "sourceRoot": "apps/lifeweb-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/lifeweb-e2e/cypress.json",
+            "tsConfig": "apps/lifeweb-e2e/tsconfig.e2e.json",
+            "devServerTarget": "lifeweb:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lifeweb:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/lifeweb-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/lifeweb-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "lifeweb"
+}
