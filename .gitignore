@@ -37,3 +37,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/apps/lifeweb/src/environments/environment.prod.ts
+/apps/lifeweb/src/environments/environment.ts

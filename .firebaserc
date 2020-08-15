@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "evodlife"
+  },
+  "targets": {
+    "evodlife": {
+      "hosting": {
+        "lifeweb": [
+          "evodlife"
+        ]
+      }
+    }
+  }
+}

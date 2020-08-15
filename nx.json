@@ -38,6 +38,9 @@
       "implicitDependencies": [
         "lifeweb"
       ]
+    },
+    "firebase-functions": {
+      "tags": []
     }
   }
 }
