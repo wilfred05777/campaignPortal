@@ -1,9 +1,3 @@
-<div *ngIf="currentUser | async as user; else showLogin">
-  <h1>Hello {{ user.displayName }}!</h1>
-  <pre><code>{{user | json}}</code></pre>
-  <button (click)="logout()">Logout</button>
-</div>
-<ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with Google</button>
-</ng-template>
+
+<evodlife-navmenu></evodlife-navmenu>
+<router-outlet></router-outlet>
