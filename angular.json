@@ -15,6 +15,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/firestore",
+              "@firebase/auth",
+              "@firebase/util",
+              "chart.js",
+              "@firebase/component"
+            ],
             "outputPath": "dist/apps/lifeweb",
             "index": "apps/lifeweb/src/index.html",
             "main": "apps/lifeweb/src/main.ts",

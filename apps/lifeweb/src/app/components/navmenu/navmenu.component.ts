@@ -16,12 +16,13 @@ export class NavmenuComponent implements OnInit {
       {
         label: 'Home',
         icon: 'pi pi-fw pi-home',
-        routerLink: 'home',
+        routerLink: ['/'],
+        routerLinkActiveOptions: { exact: true }
       },
       {
         label: 'My Dashboard',
         icon: 'pi pi-fw pi-briefcase',
-        routerLink: 'member'
+        routerLink: ['/member']
       },
       {
         label: 'EvoDynamic',
