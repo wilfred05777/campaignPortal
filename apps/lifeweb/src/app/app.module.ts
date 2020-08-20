@@ -5,15 +5,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import {environment} from "../environments/environment";
 import {AuthService} from "./services/auth.service";
-import { NavmenuComponent } from './components/navmenu/navmenu.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { HomeComponent } from './pages/home/home.component';
-import {AppRoutingModule} from "./app-routing.module";
-import { LoginComponent } from './components/login/login.component';
+import {AppRoutingModule, routingComponents} from "./app-routing.module";
 import {ButtonModule, MegaMenuModule, MenubarModule} from "primeng";
+import {MemberModule} from "./member/member.module";
+import {MemberRoutingModule} from "./member/member-routing.module";
 
 @NgModule({
-  declarations: [AppComponent, NavmenuComponent, PageNotFoundComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, routingComponents],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -22,6 +20,9 @@ import {ButtonModule, MegaMenuModule, MenubarModule} from "primeng";
     MegaMenuModule,
     MenubarModule,
     ButtonModule,
+
+    MemberModule,
+    MemberRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

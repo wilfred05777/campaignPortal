@@ -19,6 +19,11 @@ export class NavmenuComponent implements OnInit {
         routerLink: 'home',
       },
       {
+        label: 'My Dashboard',
+        icon: 'pi pi-fw pi-briefcase',
+        routerLink: 'member'
+      },
+      {
         label: 'EvoDynamic',
         icon: 'pi pi-fw pi-eject',
         url: 'https://evodynamic.com',

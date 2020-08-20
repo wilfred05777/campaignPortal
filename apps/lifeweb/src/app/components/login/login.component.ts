@@ -13,7 +13,7 @@ export class LoginComponent {
   items: Observable<any[]>;
   showUserDetail = false;
   get currentUser() {
-    return this.authService.auth.user;
+    return this.authService.afAuth.user;
   };
 
   constructor(firestore: AngularFirestore, private authService: AuthService) {
