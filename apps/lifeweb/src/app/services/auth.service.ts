@@ -7,14 +7,14 @@ import {auth} from "firebase/app";
 })
 export class AuthService {
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public af: AngularFireAuth) {
   }
 
   login() {
-    this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.af.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
   logout() {
-    this.afAuth.signOut();
+    this.af.signOut();
   }
 }

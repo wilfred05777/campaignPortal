@@ -4,6 +4,7 @@ import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.compo
 import {HomeComponent} from "./pages/home/home.component";
 import {NavmenuComponent} from "./components/navmenu/navmenu.component";
 import {LoginComponent} from "./components/login/login.component";
+import {NotAuthenticatedComponent} from "./pages/not-authenticated/not-authenticated.component";
 
 const routes: Routes = [
   { path: 'home', pathMatch: 'full', redirectTo: '' },
@@ -23,4 +24,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [NavmenuComponent, PageNotFoundComponent, HomeComponent, LoginComponent];
+export const routingComponents = [NavmenuComponent, PageNotFoundComponent, HomeComponent, LoginComponent, NotAuthenticatedComponent];

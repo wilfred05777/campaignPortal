@@ -1,2 +1,34 @@
-<p>member-dashboard works!</p>
+<h1>Life Plan Dashboard</h1>
+<p-button type="text" (click)="showme=true" icon="pi pi-plus" label="Add Eulogy"></p-button>
+<div [innerHTML]="eulogyNow"></div>
+<div [innerHTML]="eulogyThen"></div>
 
+
+<p-sidebar
+  [(visible)]="showme"
+  position="right"
+  styleClass="p-sidebar-lg"
+>
+  <div class="p-d-flex p-flex-column p-jc-start" >
+    <div class="p-mb-2"><h1>Eulogy</h1></div>
+
+    <div class="p-mb-2">
+      <h2>Right Now</h2>
+      <p>As if you died today, what would your eulogy sound like?</p>
+    </div>
+    <div class="p-mb-2 p-col">
+      <p-editor [(ngModel)]="eulogyNow"></p-editor>
+    </div>
+
+    <div class="p-mb-2">
+      <h2>10 Years from Now</h2>
+      <p>When you die in 10 years, what will you make your eulogy to be?</p>
+    </div>
+
+    <div class="p-mb-2 p-col">
+      <p-editor [(ngModel)]="eulogyThen"></p-editor>
+    </div>
+
+    <div class="p-mr-2 p-jc-end"><p-button type="text" (click)="showme=false" label="Close"></p-button></div>
+  </div>
+</p-sidebar>

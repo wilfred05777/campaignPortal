@@ -1,5 +1,10 @@
 <p-menubar [model]="menuItems">
-  <div>
+  <ng-template pTemplate="start">
+    <a routerLink="/">
+    <img src="/assets/logo.png" height="40" class="p-mr-2" alt="brand logo">
+    </a>
+  </ng-template>
+  <ng-template pTemplate="end">
     <evodlife-login></evodlife-login>
-  </div>
+  </ng-template>
 </p-menubar>

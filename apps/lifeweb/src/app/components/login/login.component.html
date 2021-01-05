@@ -1,6 +1,6 @@
 <div *ngIf="currentUser | async as user; else showLogin">
-<pre *ngIf="showUserDetail"><code>{{user | json}}</code></pre>
-  <span>Hello {{ user.displayName }}!</span>
+  <pre *ngIf="showUserDetail"><code>{{user | json}}</code></pre>
+  <div class="hello">Hello {{ user.displayName }}!</div>
   <button pButton (click)="showUserDetail = !showUserDetail" label="details"></button>
   <button pButton (click)="logout()" icon="pi pi-sign-out" label="Logout"></button>
 </div>

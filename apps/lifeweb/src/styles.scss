@@ -1,8 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+p, h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+p {
+  font-family: "Times New Roman", Garamond, Serif, serif;
+}
+
 div.p-menubar-end button.p-button {
   margin-left: 0.5em;
 }
+
 .p-menuitem-link-active {
   border: 1px solid #84a8c7;
   background-color: #8dcdff42;
+}
+
+p-sidebar {
+  .p-sidebar .p-sidebar-content {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
+}
+
+.p-col {
+  padding: 0;
+}
+
+p-editor .p-editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

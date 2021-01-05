@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {MemberRoutingModule, routingComponents} from "./member-routing.module";
+import {MenuModule} from "primeng/menu";
+import {SidebarModule} from "primeng/sidebar";
+import {ButtonModule} from "primeng/button";
+import {EditorModule} from "primeng/editor";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [routingComponents],
   imports: [
-    CommonModule,
     MemberRoutingModule,
+    MenuModule,
+    SidebarModule,
+    ButtonModule,
+    EditorModule,
+    FormsModule,
   ],
   exports: [
     MemberRoutingModule,
