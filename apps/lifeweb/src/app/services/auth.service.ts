@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/auth";
-import {auth} from "firebase/app";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(public af: AngularFireAuth) {
-  }
+  constructor(public af: AngularFireAuth) {}
 
   login() {
     this.af.signInWithPopup(new auth.GoogleAuthProvider());

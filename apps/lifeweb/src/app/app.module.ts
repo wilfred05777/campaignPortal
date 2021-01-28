@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 // import {environment} from "../environments/environment";
 import { environment } from '../../../firebase-functions/src/environments/environment';
 import { AuthService } from './services/auth.service';
+import { MemberService } from './services/member.service';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { SharedModule } from 'primeng/api';
 import { MemberModule } from './member/member.module';
@@ -34,7 +35,7 @@ import { ButtonModule } from 'primeng/button';
     MemberModule,
     MemberRoutingModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, MemberService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
