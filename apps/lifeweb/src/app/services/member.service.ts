@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 export interface Member {
   id: string;
@@ -11,40 +15,39 @@ export interface Member {
   providedIn: 'root',
 })
 export class MemberService {
-  constructor(public afs: AngularFirestore) {}
+  // public angularfirebaseCollection: AngularFirestoreCollection;
+  member: Observable<Member>;
 
-  // onSubmit() {
-  //   this.afs.collection('MemberMessage').add('Test');
-  //   // console.log('Succes');
-  // }
-  data = {
-    name: 'Los Angeles',
-    state: 'CA',
-    country: 'USA',
-  };
+  constructor(
+    public afs: AngularFirestore,
+    public afsCollection: AngularFirestoreCollection
+  ) {}
 
+  // CREATE
   async onSubmit() {
-    await this.afs.collection('cities').doc('new-city-id').set(this.data);
-    // Add a new document with a generated id.
-    const res = await this.afs.collection('cities').add({
-      name: 'Tokyo',
-      country: 'Japan',
+    await this.afs.collection('members').doc('content');
+    const res = await this.afs.collection('member').add({
+      eulogyNow: 'type something',
+      eulogyThen: 'something',
     });
-
     console.log('Added document with ID: ', res.id);
-    // this.afs
-    //   .collection('cities')
-    //   .doc('LA')
-    //   .set({
-    //     name: 'Los Angeles',
-    //     state: 'CA',
-    //     country: 'USA',
-    //   })
-    //   .then(function () {
-    //     console.log('Document successfully written!');
-    //   })
-    //   .catch(function (error) {
-    //     console.error('Error writing document: ', error);
-    //   });
   }
+
+  // // Testing to save data in firestore
+  // data = {
+  //   name: 'Los Angeles',
+  //   state: 'CA',
+  //   country: 'USA',
+  // };
+
+  // async onSubmit() {
+  //   await this.afs.collection('cities').doc('new-city-id').set(this.data);
+  //   // Add a new document with a generated id.
+  //   const res = await this.afs.collection('cities').add({
+  //     name: 'Tokyo',
+  //     country: 'Japan',
+  //   });
+
+  //   console.log('Added document with ID: ', res.id);
+  // }
 }

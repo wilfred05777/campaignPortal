@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AppComponent } from './app.component';
 // import {environment} from "../environments/environment";
 import { environment } from '../../../firebase-functions/src/environments/environment';
@@ -23,6 +24,8 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+
     AngularFirestoreModule,
     AppRoutingModule,
 

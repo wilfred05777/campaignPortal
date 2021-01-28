@@ -22,6 +22,5 @@ export class MemberDashboardComponent implements OnInit {
 
   onSubmit() {
     this.memberService.onSubmit();
-    // console.log('save');
   }
 }

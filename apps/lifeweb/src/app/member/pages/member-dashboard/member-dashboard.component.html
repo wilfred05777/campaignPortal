@@ -18,8 +18,12 @@
         <p>As if you died today, what would your eulogy sound like?</p>
       </div>
       <div class="p-mb-2 p-col">
-        <p-editor [(ngModel)]="eulogyNow">
-          <input type="text" />
+        <p-editor
+          type="text"
+          [(ngModel)]="eulogyNow"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <!-- <input type="text" /> -->
         </p-editor>
       </div>
 
@@ -29,8 +33,12 @@
       </div>
 
       <div class="p-mb-2 p-col">
-        <p-editor [(ngModel)]="eulogyThen">
-          <input type="text" />
+        <p-editor
+          type="text"
+          [(ngModel)]="eulogyThen"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <!-- <input type="text" /> -->
         </p-editor>
       </div>
 
@@ -49,3 +57,4 @@
     </div>
   </p-sidebar>
 </form>
+<!-- <button type="submit" (click)="onSubmit()">Submit</button> -->
