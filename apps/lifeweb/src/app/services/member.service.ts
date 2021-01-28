@@ -16,13 +16,43 @@ export interface Member {
 })
 export class MemberService {
   // public angularfirebaseCollection: AngularFirestoreCollection;
-  member: Observable<Member>;
+  // member: Observable<Member>;
 
   constructor(
-    public afs: AngularFirestore,
-    public afsCollection: AngularFirestoreCollection
+    public afs: AngularFirestore // public afsCollection: AngularFirestoreCollection
   ) {}
 
+  onSubmitTest() {
+    this.afs.collection('members').doc('content');
+    this.afs
+      .collection('members')
+      .add({
+        onSubmitTesteulogyNow: 'First Example Content',
+        onSubmitTesteulogyThen: 'Second Example Content',
+      })
+      .then((docRef) => {
+        console.log('Document Written with ID: ', docRef.id);
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
+  }
+
+  onSubmitV2() {
+    // this.afs.collection('members').doc('content');
+    this.afs
+      .collection('content')
+      .add({
+        onSubmitV2eulogyNow: 'First Example Content',
+        onSubmitV2eulogyThen: 'Second Example Content',
+      })
+      .then(function (docRef) {
+        console.log('Document Written with ID: ', docRef.id);
+      })
+      .catch(function (error) {
+        console.error('Error adding document: ', error);
+      });
+  }
   // CREATE
   async onSubmit() {
     await this.afs.collection('members').doc('content');

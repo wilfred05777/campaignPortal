@@ -23,4 +23,12 @@ export class MemberDashboardComponent implements OnInit {
   onSubmit() {
     this.memberService.onSubmit();
   }
+
+  onSubmitV2() {
+    this.memberService.onSubmitV2();
+  }
+
+  onSubmitTest() {
+    this.memberService.onSubmitTest();
+  }
 }
