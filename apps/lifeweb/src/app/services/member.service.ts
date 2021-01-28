@@ -11,19 +11,18 @@ export interface Member {
   eulogyThen: string;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class MemberService {
   // public angularfirebaseCollection: AngularFirestoreCollection;
   // member: Observable<Member>;
 
   constructor(
-    public afs: AngularFirestore // public afsCollection: AngularFirestoreCollection
-  ) {}
+    private afs: AngularFirestore
+  ) // private afsCollection: AngularFirestoreCollection
+  {}
 
   onSubmitTest() {
-    this.afs.collection('members').doc('content');
+    // this.afs.collection('members').doc('content');
     this.afs
       .collection('members')
       .add({
