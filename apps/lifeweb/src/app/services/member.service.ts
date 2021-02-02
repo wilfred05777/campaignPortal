@@ -6,35 +6,56 @@ import {
 import { Observable } from 'rxjs';
 
 export interface Member {
-  id: string;
+  id?: string;
   eulogyNow: string;
   eulogyThen: string;
 }
 
+// @Injectable({
+//   providedIn: 'root',
+// })
 @Injectable()
 export class MemberService {
-  // public angularfirebaseCollection: AngularFirestoreCollection;
-  // member: Observable<Member>;
+  private memberCollection: AngularFirestoreCollection<Member>;
+  member$: Observable<Member>;
 
   constructor(
-    private afs: AngularFirestore
-  ) // private afsCollection: AngularFirestoreCollection
-  {}
+    private afs: AngularFirestore,
+    private afsCollection: AngularFirestoreCollection
+  ) {}
 
-  onSubmitTest() {
-    // this.afs.collection('members').doc('content');
+  fetchAllMember() {}
+
+  onSubmit() {
     this.afs
       .collection('members')
       .add({
-        onSubmitTesteulogyNow: 'First Example Content',
-        onSubmitTesteulogyThen: 'Second Example Content',
+        // connect ui input here
       })
       .then((docRef) => {
-        console.log('Document Written with ID: ', docRef.id);
+        console.log('Document With ID: ', docRef.id);
       })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
+      .catch();
+    // this.afs.collection('members').doc('content');
+    // this.afs
+    //   .collection('members')
+    //   .add({
+    //     onSubmitTesteulogyNow: 'First Example Content',
+    //     onSubmitTesteulogyThen: 'Second Example Content',
+    //   })
+    //   .then((docRef) => {
+    //     console.log('Document Written with ID: ', docRef.id);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error adding document: ', error);
+    //   });
+  }
+
+  OnSaveTwo() {
+    this.afs.collection('members').add({
+      eulogyNow: 'content 1',
+      eulogyThen: 'Eulogythen Content',
+    });
   }
 
   onSubmitV2() {
@@ -53,7 +74,7 @@ export class MemberService {
       });
   }
   // CREATE
-  async onSubmit() {
+  async onSubmitNode() {
     await this.afs.collection('members').doc('content');
     const res = await this.afs.collection('member').add({
       eulogyNow: 'type something',

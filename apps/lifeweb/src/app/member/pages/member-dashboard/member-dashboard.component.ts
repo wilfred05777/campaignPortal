@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { MemberService } from '../../../services/member.service';
 
@@ -15,20 +16,21 @@ export class MemberDashboardComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public memberService: MemberService
+    private memberService: MemberService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
+    this.authService.login();
+    // console.log('test');
+  }
+
+  onSave(form: NgForm) {
     this.memberService.onSubmit();
   }
 
-  onSubmitV2() {
-    this.memberService.onSubmitV2();
-  }
-
-  onSubmitTest() {
-    this.memberService.onSubmitTest();
+  OnSaveTwo(form: NgForm) {
+    this.memberService.OnSaveTwo();
   }
 }

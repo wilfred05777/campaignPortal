@@ -8,7 +8,8 @@
 <div [innerHTML]="eulogyNow"></div>
 <div [innerHTML]="eulogyThen"></div>
 
-<form>
+<!-- <form #f="ngForm" (ngSubmit)="onSave(f)"> -->
+<!-- <form (submit)="onSave(contentForm)" #contentForm="ngForm">
   <p-sidebar [(visible)]="showme" position="right" styleClass="p-sidebar-lg">
     <div class="p-d-flex p-flex-column p-jc-start">
       <div class="p-mb-2"><h1>Eulogy</h1></div>
@@ -20,10 +21,12 @@
       <div class="p-mb-2 p-col">
         <p-editor
           type="text"
+          name="eulogyNowContent"
+          ngModel
+          #eulogyNowContent="ngModel"
           [(ngModel)]="eulogyNow"
           [ngModelOptions]="{ standalone: true }"
         >
-          <!-- <input type="text" /> -->
         </p-editor>
       </div>
 
@@ -35,10 +38,12 @@
       <div class="p-mb-2 p-col">
         <p-editor
           type="text"
+          name="eulogyThenContent"
+          ngModel
+          #eulogyThenContent="ngModel"
           [(ngModel)]="eulogyThen"
           [ngModelOptions]="{ standalone: true }"
         >
-          <!-- <input type="text" /> -->
         </p-editor>
       </div>
 
@@ -49,14 +54,33 @@
       <div class="p-mr-3 p-jc-end">
         <p-button
           class="p-button-raised p-button-rounded"
-          type="text"
-          (click)="onSubmit()"
+          type="submit"
           label="Save"
         ></p-button>
       </div>
     </div>
   </p-sidebar>
-</form>
+</form> -->
+
 <!-- <button type="submit" (click)="onSubmit()">Submit</button> -->
-<button type="submit" (click)="onSubmitV2()">SubmitV2</button>
-<button type="submit" (click)="onSubmitTest()">SubmitTest</button>
+<!-- <button type="submit" (click)="onSubmitV2()">SubmitV2</button> -->
+<!-- <button type="submit" (click)="onSubmitTest()">SubmitTest</button> -->
+<form (submit)="OnSaveTwo(fContent)" #fContent="ngForm">
+  <textarea
+    rows="4"
+    name="eulogyNow"
+    ngModel
+    required
+    placeholder="eulogyNow"
+    #eulogyNow="ngModel"
+  ></textarea>
+  <br />
+  <textarea
+    rows="4"
+    name="eulogyThen"
+    ngModel
+    required
+    placeholder="eulogyThen"
+    #eulogyThen="ngModel"
+  ></textarea>
+</form>

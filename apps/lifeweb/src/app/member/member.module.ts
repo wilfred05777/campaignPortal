@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import {MemberRoutingModule, routingComponents} from "./member-routing.module";
-import {MenuModule} from "primeng/menu";
-import {SidebarModule} from "primeng/sidebar";
-import {ButtonModule} from "primeng/button";
-import {EditorModule} from "primeng/editor";
-import {FormsModule} from "@angular/forms";
+import {
+  MemberRoutingModule,
+  routingComponents,
+} from './member-routing.module';
+import { MenuModule } from 'primeng/menu';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { EditorModule } from 'primeng/editor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [routingComponents],
@@ -16,8 +19,6 @@ import {FormsModule} from "@angular/forms";
     EditorModule,
     FormsModule,
   ],
-  exports: [
-    MemberRoutingModule,
-  ]
+  exports: [MemberRoutingModule],
 })
 export class MemberModule {}
